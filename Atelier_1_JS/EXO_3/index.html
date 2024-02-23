@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="mb-4">Ma Liste de Tâches</h1>
+    <div class="mb-3">
+        <label for="nameInput" class="form-label">Nom :</label>
+        <input type="text" class="form-control" id="nameInput" placeholder="Nom de la tâche...">
+    </div>
+    <div class="mb-3">
+        <label for="contentInput" class="form-label">Contenu :</label>
+        <textarea class="form-control" id="contentInput" placeholder="Contenu de la tâche..."></textarea>
+    </div>
+    <button class="btn btn-primary mb-3" onclick="addTask()">Ajouter</button>
+    <ul id="taskList" class="list-group">
+    
+    </ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

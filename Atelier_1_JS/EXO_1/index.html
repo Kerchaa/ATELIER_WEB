@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GUESS THE NUMBER !</title>
+</head>
+<body>
+
+<script>
+    
+    function generateRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    
+    function jeuDuChiffreCache(difficulte) {
+        var maxTentatives, minRange, maxRange;
+
+        
+        switch (difficulte) {
+            case "facile":
+                maxTentatives = 5;
+                minRange = 1;
+                maxRange = 10;
+                break;
+            case "intermediaire":
+                maxTentatives = 3;
+                minRange = 1;
+                maxRange = 50;
+                break;
+            case "difficile":
+                maxTentatives = 2;
+                minRange = 1;
+                maxRange = 100;
+                break;
+            default:
+                maxTentatives = 5;
+                minRange = 1;
+                maxRange = 10;
+        }
+
+        
+        var nombreCache = generateRandomNumber(minRange, maxRange);
+
+        
+        function devinerNombre() {
+            var tentative = 1;
+            while (tentative <= maxTentatives) {
+                var guess = parseInt(prompt("Tentative " + tentative + " sur " + maxTentatives + ". Devinez le nombre entre " + minRange + " et " + maxRange + ":"));
+
+                if (guess === nombreCache) {
+                    alert("Félicitations! Vous avez deviné le nombre " + nombreCache + " en " + tentative + " tentatives!");
+                    return;
+                } else if (guess < nombreCache) {
+                    alert("Le nombre à deviner est plus grand.");
+                } else {
+                    alert("Le nombre à deviner est plus petit.");
+                }
+                tentative++;
+            }
+            alert("Désolé, vous avez utilisé toutes vos tentatives. Le nombre était " + nombreCache + ".");
+        }
+
+        
+        devinerNombre();
+
+        
+        var rejouer = confirm("Voulez-vous rejouer?");
+        if (rejouer) {
+            jeuDuChiffreCache(difficulte); 
+        } else {
+            alert("Merci d'avoir joué!");
+        }
+    }
+
+    
+    var difficulte = prompt("Choisissez la difficulté: facile, intermediaire ou difficile.");
+    jeuDuChiffreCache(difficulte.toLowerCase()); 
+</script>
+
+</body>
+</html>

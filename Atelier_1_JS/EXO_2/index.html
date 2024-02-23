@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Word</title>
+    
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            padding-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="mb-4">Mini Word</h2>
+
+    
+    <p id="paragraphe" style="font-size: 16px;">Test</p>
+
+    
+    <div class="mb-3">
+        <label for="colorPicker" class="form-label">Couleur du texte:</label>
+        <input type="color" class="form-control" id="colorPicker" onchange="updateAttribute('paragraphe', 'color', this.value)">
+    </div>
+
+    
+    <div class="mb-3">
+        <label for="fontSizeInput" class="form-label">Taille de l'écriture:</label>
+        <input type="number" class="form-control" id="fontSizeInput" min="10" max="40" value="16" onchange="updateAttribute('paragraphe', 'font-size', this.value + 'px')">
+    </div>
+
+    
+    <div class="mb-3">
+        <label for="fontFamilySelect" class="form-label">Police:</label>
+        <select class="form-select" id="fontFamilySelect" onchange="updateAttribute('paragraphe', 'font-family', this.value)">
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+        </select>
+    </div>
+</div>
+
+<script>
+        // Fonction pour mettre à jour un attribut d'un élément HTML
+        /**
+     * Met à jour un attribut spécifié d'un élément HTML avec l'identifiant donné.
+     * 
+     * @param {string} elementId - L'identifiant de l'élément HTML à mettre à jour.
+     * @param {string} attributeName - Le nom de l'attribut à mettre à jour (par exemple, "color", "font-size", "font-family").
+     * @param {string} attributeValue - La nouvelle valeur de l'attribut spécifié.
+     * @returns {void} Cette fonction ne renvoie aucune valeur.
+     */ 
+    function updateAttribute(elementId, attributeName, attributeValue) {
+        var element = document.getElementById(elementId);
+        element.style[attributeName] = attributeValue;
+    }
+</script>
+
+</body>
+</html>
